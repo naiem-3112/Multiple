@@ -46,6 +46,12 @@ class User extends Authenticatable
         }
         return false;
     }
+    public function isUser($role){
+        if($this->roles()->where('role_id', $role )->first()){
+            return true;
+        }
+        return false;
+    }
 
 
 }

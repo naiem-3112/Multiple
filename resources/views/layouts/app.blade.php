@@ -35,10 +35,13 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('student.list') }}">{{ __('Users') }}</a>
+                            <a class="nav-link" href="{{ route('student.list') }}">{{ __('Students') }}</a>
                         </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('role.list') }}">{{ __('Roles') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('permission.list') }}">{{ __('Permissions') }}</a>
                             </li>
                             @endauth
 

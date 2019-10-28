@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Role;
+use App\Permission;
 
 class RoleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'check']);
+        $this->middleware(['auth', 'checkAdmin']);
     }
 
     public function index()
@@ -20,7 +21,8 @@ class RoleController extends Controller
 
     public function roleCreateForm()
     {
-        return view('role.createRole');
+        $permissions = Permission::all();
+        return view('role.createRole', compact('permissions'));
     }
 
     public function roleCreate(Request $request)

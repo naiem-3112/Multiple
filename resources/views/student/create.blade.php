@@ -34,10 +34,22 @@
 
 
             <label for="password">Password</label>
-            <input class="form-control col-6 " type="text" name="password" >
+            <input class="form-control col-6 " type="password" name="password">
             @if($errors->has('password'))
                 <strong style="color: red">{{ $errors->first('password') }}</strong>
             @endif
+
+            {{--<label for="role">Role</label>
+            <select class="form-control col-6 " name="role">
+                <option selected disabled>Select User Role</option>
+                @foreach($roles as $role)
+                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                @endforeach
+            </select>
+            @if($errors->has('role'))
+                <strong style="color: red">{{ $errors->first('role') }}</strong>
+            @endif--}}
+
         </div>
         <button type="submit" class="btn btn-success">Create</button>
     </form>

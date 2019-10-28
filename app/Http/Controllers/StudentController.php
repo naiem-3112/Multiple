@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Student;
+use App\Role;
 
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class StudentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','check']);
+        $this->middleware(['auth']);
     }
 
     public function index()
@@ -22,7 +23,8 @@ class StudentController extends Controller
 
     public function createForm()
     {
-        return view('student.create');
+        $roles = Role::all();
+        return view('student.create', compact('roles'));
     }
 
     public function create(Request $request)
@@ -33,7 +35,8 @@ class StudentController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:3',
             'from' => 'required',
-            'to' => 'required'
+            'to' => 'required',
+            'role' => 'required'
 
         ]);
         $request['password'] = bcrypt($request->password);
