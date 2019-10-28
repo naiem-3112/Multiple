@@ -27,7 +27,8 @@ class PermissionController extends Controller
     public function permissionCreate(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required'
+            'name' => 'required',
+
         ]);
         $permissionCreate = Permission::create($request->all());
         $permissionCreate->save();

@@ -21,6 +21,7 @@ class RoleController extends Controller
 
     public function roleCreateForm()
     {
+
         $permissions = Permission::all();
         return view('role.createRole', compact('permissions'));
     }
@@ -30,9 +31,14 @@ class RoleController extends Controller
         $this->validate($request, [
            'name' => 'required'
         ]);
-        $roleCreate = Role::create($request->all());
-        $roleCreate->save();
+       $roleCreate = Role::create($request->all());
+       $roleCreate->permissions()->attach($request->id);
         return redirect('role/list');
+
+        /*$roleCreate = new Role;
+        $roleCreate->name = $request->name;
+        $roleCreate->permission = $request->permission;
+        $roleCreate->save();*/
     }
 
     public function roleEdit($id)
@@ -54,7 +60,9 @@ class RoleController extends Controller
 
     public function roleDelete($id)
     {
-        Role::find($id)->delete();
+        $role = Role::find($id);
+        $role->permissions()->detach();
+        $role->delete();
         return redirect('role/list');
     }
 }

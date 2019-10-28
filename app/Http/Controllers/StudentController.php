@@ -10,10 +10,6 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth']);
-    }
 
     public function index()
     {
@@ -36,12 +32,12 @@ class StudentController extends Controller
             'password' => 'required|min:3',
             'from' => 'required',
             'to' => 'required',
-            'role' => 'required'
 
         ]);
         $request['password'] = bcrypt($request->password);
         $student = Student::create($request->all());
         $student->save();
+        $student->roles()->attach($request->role);
         return redirect('student/list');
     }
 
@@ -70,7 +66,9 @@ class StudentController extends Controller
 
     public function delete($id)
     {
-        Student::find($id)->delete();
+        $student = Student::find($id);
+        $student->roles()->detach();
+        $student->delete();
         return redirect('student/list');
     }
 }

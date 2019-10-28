@@ -12,7 +12,7 @@
 
             <label for="from">Permission</label><br>
             @foreach($permissions as $permission)
-            <input type="checkbox" name="permission[]" value="{{ $permission->id }}">{{ $permission->name }}<br>
+            <input type="checkbox" name="id[]" value="{{ $permission->id }}">{{ $permission->name }}<br>
             @endforeach
             @if($errors->has('permission'))
                 <strong style="color: red">{{ $errors->first('permission') }}</strong><br>

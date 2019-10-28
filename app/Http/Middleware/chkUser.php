@@ -19,7 +19,7 @@ class chkUser
         if (Auth::user()->isUser(2)) {
             return $next($request);
         }
-        return redirect('student/list');
+        return redirect('home');
 
     }
 }

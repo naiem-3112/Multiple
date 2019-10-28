@@ -21,12 +21,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/student/login-form', 'StudentLoginController@loginForm')->name('student.loginForm');
+Route::post('/student/login', 'StudentLoginController@login')->name('student.login');
 Route::get('/student/list', 'StudentController@index')->name('student.list');
-Route::get('/student/create-form', 'StudentController@createForm')->name('student.createForm')->middleware('checkUser');
-Route::post('/student/create', 'StudentController@create')->name('student.create')->middleware('checkUser');
-Route::get('/student/edit/{id}', 'StudentController@edit')->name('student.edit')->middleware('checkAdmin');
-Route::post('/student/update{id}', 'StudentController@update')->name('student.update')->middleware('checkAdmin');
-Route::get('/student/delete/{id}', 'StudentController@delete')->name('student.delete')->middleware('checkAdmin');
+Route::get('/student/create-form', 'StudentController@createForm')->name('student.createForm');
+Route::post('/student/create', 'StudentController@create')->name('student.create');
+Route::get('/student/edit/{id}', 'StudentController@edit')->name('student.edit');
+Route::post('/student/update{id}', 'StudentController@update')->name('student.update');
+Route::get('/student/delete/{id}', 'StudentController@delete')->name('student.delete');
 
 Route::prefix('role/')->group(function () {
     Route::get('/list', 'RoleController@index')->name('role.list');
@@ -45,5 +48,8 @@ Route::prefix('permission/')->group(function () {
     Route::post('/update{id}', 'PermissionController@permissionUpdate')->name('permission.update');
     Route::get('/delete/{id}', 'PermissionController@permissionDelete')->name('permission.delete');
 });
+
+
+
 
 

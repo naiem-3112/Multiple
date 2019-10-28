@@ -33,6 +33,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('student.loginForm') }}">{{ __('StudentsLogin') }}</a>
+                        </li>
+                        
                         @auth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('student.list') }}">{{ __('Students') }}</a>
@@ -43,6 +48,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('permission.list') }}">{{ __('Permissions') }}</a>
                             </li>
+
+
                             @endauth
 
                     </ul>
