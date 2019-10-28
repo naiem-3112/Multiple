@@ -37,6 +37,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('student.list') }}">{{ __('Users') }}</a>
                         </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('role.list') }}">{{ __('Roles') }}</a>
+                            </li>
                             @endauth
 
                     </ul>
