@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Role;
+use App\Student;
 use App\Permission;
 
 class RoleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'checkAdmin']);
+        $this->middleware(['auth:student', 'checkPermission']);
     }
 
     public function index()
@@ -33,6 +34,7 @@ class RoleController extends Controller
         ]);
        $roleCreate = Role::create($request->all());
        $roleCreate->permissions()->attach($request->id);
+
         return redirect('role/list');
 
         /*$roleCreate = new Role;
@@ -62,6 +64,7 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $role->permissions()->detach();
+
         $role->delete();
         return redirect('role/list');
     }

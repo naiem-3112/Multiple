@@ -20,7 +20,7 @@ class Role extends Model
         return $this->belongsToMany('App\Permission');
     }
     public function students(){
-        return $this->hasMany('App\Student');
+        return $this->belongsToMany('App\Student');
     }
 
 }

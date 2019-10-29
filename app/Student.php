@@ -18,4 +18,21 @@ class Student extends Authenticatable
     public function roles(){
         return $this->belongsToMany('App\Role');
     }
+    public function isStudent($roles){
+
+        $users=$this->roles()->whereIn('name', $roles )->get();
+        if($users) {
+            foreach ($users as $user) {
+                $list[] = $user->name;
+            }
+            return $list;
+        }
+        return false;
+    }
+    public function isUser($role){
+        if($this->roles()->where('role_id', $role )->first()){
+            return true;
+        }
+        return false;
+    }
 }

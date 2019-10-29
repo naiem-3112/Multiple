@@ -24,6 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/student/login-form', 'StudentLoginController@loginForm')->name('student.loginForm');
 Route::post('/student/login', 'StudentLoginController@login')->name('student.login');
+Route::get('/student/info', 'StudentLoginController@info')->name('student.info')->middleware('auth:student');
+Route::post('/student/logout', 'StudentLoginController@logout')->name('student.logout');
+Route::get('/student/info', 'StudentLoginController@info')->name('student.info');
 Route::get('/student/list', 'StudentController@index')->name('student.list');
 Route::get('/student/create-form', 'StudentController@createForm')->name('student.createForm');
 Route::post('/student/create', 'StudentController@create')->name('student.create');

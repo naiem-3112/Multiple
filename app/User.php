@@ -40,9 +40,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
 
-    public function isAdmin($role){
-        if($this->roles()->where('role_id', $role )->first()){
-            return true;
+    public function isStudent($role){
+       $name= $this->roles()->where('role_id', $role )->first();
+        if($name){
+            return $name->name;
         }
         return false;
     }

@@ -10,11 +10,21 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+
+        return $this->middleware(['auth:student','checkPermission']);
+    }
 
     public function index()
     {
         $students = Student::all();
         return view('student.list', compact('students'));
+       /* $role=Auth::user();
+        $permisssion=$role->whereHas('permissions',function ($permit){
+            $permit ->where('name', 'add_student');
+        })->get();
+        dd($permisssion->first()->name);*/
     }
 
     public function createForm()
