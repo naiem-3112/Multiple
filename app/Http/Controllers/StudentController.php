@@ -13,7 +13,7 @@ class StudentController extends Controller
 {
     public function __construct()
     {
-        return $this->middleware(['auth:student', 'checkAdmin'])->except('logout');
+        return $this->middleware([])->except('logout');
     }
 
     public function index()

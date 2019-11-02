@@ -10,9 +10,12 @@ class Permission extends Model
       'name',
     ];
     public function roles(){
-        return $this->belongsToMany('App\Role');
+        return $this->belongsToMany(Role::class);
     }
-    public function hasPermissions($permissions){
+    public function getPermissionAttribute($value){
+        return "Can".ucwords($this->name)." ";
+    }
+    /*public function hasPermissions($permissions){
 
         $permission=$this->roles()->whereIn('name', $permissions )->get();
         if($permission) {
@@ -22,5 +25,5 @@ class Permission extends Model
             return $list;
         }
         return false;
-    }
+    }*/
 }

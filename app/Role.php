@@ -12,15 +12,16 @@ class Role extends Model
     /*protected $casts=[
         'permission' => 'array',
     ];*/
+    public function students(){
+        return $this->belongsToMany(Student::class);
+    }
 
-    public function users(){
-        return $this->belongsToMany('App\User');
+    public function getRoleNameAttribute($value){
+        return ucwords($this->name);
     }
     public function permissions(){
-        return $this->belongsToMany('App\Permission');
+        return $this->belongsToMany(Permission::class);
     }
-    public function students(){
-        return $this->belongsToMany('App\Student');
-    }
+
 
 }
