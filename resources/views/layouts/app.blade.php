@@ -61,11 +61,11 @@
         <div class="main-menu">
             <h5 class="sidenav-heading">Main</h5>
             <ul id="side-main-menu" class="side-menu list-unstyled">
-                @if(Auth::guard('student')->guest())
+                {{--@if(Auth::guard('student')->guest())
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('student.loginForm') }}">{{ __('StudentsLogin') }}</a>
                 </li>
-                @endif
+                @endif--}}
 
                 @if(Auth::guard('student')->check())
                     <li class="nav-item"><a href="{{ route('student.logout') }}" class="nav-link logout"> <span
@@ -86,7 +86,6 @@
                 </li>
                 <li><a class="nav-link" href="{{ route('permission.list') }}"><i
                             class="icon-flask"></i>{{ __('Permissions') }}</a></li>
-@endif
 
 
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i
@@ -97,10 +96,9 @@
 
                     </ul>
                 </li>
-                <li><a href=""> <i class="icon-interface-windows"></i>Login page </a></li>
-                <li><a href="#"> <i class="icon-mail"></i>Demo
-                        <div class="badge badge-warning">6 New</div>
-                    </a></li>
+
+                @endif
+
             </ul>
         </div>
 

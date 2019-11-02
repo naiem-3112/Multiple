@@ -36,23 +36,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function roles(){
-        return $this->belongsToMany('App\Role');
-    }
-
-    public function isAdmin($role){
-       $name= $this->roles()->where('role_id', $role )->first();
-        if($name){
-            return $name->name;
-        }
-        return false;
-    }
-    public function isUser($role){
-        if($this->roles()->where('role_id', $role )->first()){
-            return true;
-        }
-        return false;
-    }
-
 
 }

@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class StudentLoginController extends Controller
 {
-
-
-    public function loginForm(){
-        return view('student.loginForm');
+    public function __construct()
+    {
+        $this->middleware(['auth:student'])->except(['login']);
     }
+
+
     public function login(Request $request){
 
         $this->validate($request, [
@@ -24,14 +25,9 @@ class StudentLoginController extends Controller
 
             return redirect('student/info');
         }
-        return redirect('/student/login-form')->with('error', 'Credential do not match');
+        return redirect('/')->with('error', 'Credential do not match');
 
     }
-    public function guard()
-    {
-        $this->middleware('auth:student');
-    }
-
         public function info()
         {
             return view('student.info');
@@ -41,7 +37,7 @@ class StudentLoginController extends Controller
         {
             Auth::guard('student')->logout();
 
-            return redirect('student/login-form');
+            return redirect('/');
         }
 
 }

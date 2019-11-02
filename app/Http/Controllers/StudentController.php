@@ -13,8 +13,7 @@ class StudentController extends Controller
 {
     public function __construct()
     {
-
-        return $this->middleware(['auth:student']);
+        return $this->middleware(['auth:student', 'checkAdmin'])->except('logout');
     }
 
     public function index()
@@ -82,8 +81,4 @@ class StudentController extends Controller
         return redirect('student/list');
     }
 
-    public function logout(Request $request) {
-        Auth::guard('student')->logout();
-        return redirect('/');
-    }
 }

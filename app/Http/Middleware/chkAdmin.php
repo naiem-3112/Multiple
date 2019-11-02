@@ -17,7 +17,7 @@ class chkAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->isStudent(1)) {
+        if (Auth::user()->isAdmin(1)) {
             return $next($request);
         }
         return redirect('home');

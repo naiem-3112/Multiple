@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Team;
+use App\Student;
 
 class TeamController extends Controller
 {
@@ -12,7 +13,8 @@ class TeamController extends Controller
 
     }
     public function teamCreateForm(){
-        return view('team.createTeam');
+        $members = Student::all();
+        return view('team.createTeam', compact('members'));
     }
     public function create(Request $request){
         $this->validate($request, [
@@ -20,7 +22,7 @@ class TeamController extends Controller
            'leader_id' => 'nullable'
         ]);
 
-        $team = create(Team::$request->all());
+        $team = Team::create($request->all());
         $team->save();
     }
     public function edit($id){
