@@ -10,7 +10,7 @@
                 <strong style="color: red">{{ $errors->first('name') }}</strong><br>
             @endif
         </div>
-        <button type="submit" class="btn btn-success">Update</button>
+        <button style="margin-left: 10px" type="submit" class="btn btn-success">Update</button>
     </form>
 
 @endsection

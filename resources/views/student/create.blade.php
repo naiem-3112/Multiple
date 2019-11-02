@@ -3,7 +3,7 @@
     <form action="{{ route('student.create') }}" method="post">
         @csrf
 
-        <div class="form-group col-8">
+        <div class="form-group col-12">
             <label for="from">Name</label>
             <input class="form-control col-6 " type="text" name="name" value="{{ old('name') }}">
             @if($errors->has('name'))

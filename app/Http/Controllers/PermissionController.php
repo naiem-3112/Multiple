@@ -10,7 +10,7 @@ class PermissionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth:student', 'checkPermission']);
+        $this->middleware(['auth:student']);
     }
 
     public function index()

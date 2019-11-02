@@ -40,7 +40,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
 
-    public function isStudent($role){
+    public function isAdmin($role){
        $name= $this->roles()->where('role_id', $role )->first();
         if($name){
             return $name->name;

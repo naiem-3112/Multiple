@@ -7,24 +7,21 @@ use App\Student;
 use App\Role;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
     public function __construct()
     {
 
-        return $this->middleware(['auth:student','checkPermission']);
+        return $this->middleware(['auth:student']);
     }
 
     public function index()
     {
         $students = Student::all();
         return view('student.list', compact('students'));
-       /* $role=Auth::user();
-        $permisssion=$role->whereHas('permissions',function ($permit){
-            $permit ->where('name', 'add_student');
-        })->get();
-        dd($permisssion->first()->name);*/
+
     }
 
     public function createForm()
@@ -54,7 +51,8 @@ class StudentController extends Controller
     public function edit($id)
     {
         $editDetails = Student::find($id);
-        return view('student.edit', compact('editDetails'));
+        $allRoles = Role::all();
+        return view('student.edit', compact('editDetails', 'allRoles'));
     }
 
     public function update(Request $request, $id)
@@ -64,6 +62,7 @@ class StudentController extends Controller
             'email' => 'required|email',
             'from' => 'required',
             'to' => 'required',
+            'role' => 'required'
         ]);
         $updateDetails = Student::find($id);
         $updateDetails->name = $request->name;
@@ -71,6 +70,7 @@ class StudentController extends Controller
         $updateDetails->from = $request->from;
         $updateDetails->to = $request->to;
         $updateDetails->save();
+        $updateDetails->roles()->sync($request->role);
         return redirect('student/list');
     }
 
@@ -80,5 +80,10 @@ class StudentController extends Controller
         $student->roles()->detach();
         $student->delete();
         return redirect('student/list');
+    }
+
+    public function logout(Request $request) {
+        Auth::guard('student')->logout();
+        return redirect('/student/login-form');
     }
 }

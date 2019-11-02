@@ -1,6 +1,7 @@
-@extends('layouts/app')
+@extends('layouts.app')
 @section('content')
-    <table class="table table-hover table-bordered">
+    <div class="col-12">
+    <table class="table table-hover table-bordered table-dark">
         <thead>
         <tr>
             <th>Name</th>
@@ -23,5 +24,6 @@
         </tr>
             @endforeach
     </table>
+    </div>
     <a href="{{ route('student.createForm') }}">Create New Student</a>
     @endsection

@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/student/login-form', 'StudentLoginController@loginForm')->name('student.loginForm');
 Route::post('/student/login', 'StudentLoginController@login')->name('student.login');
 Route::get('/student/info', 'StudentLoginController@info')->name('student.info')->middleware('auth:student');
-Route::post('/student/logout', 'StudentLoginController@logout')->name('student.logout');
+Route::get('/student/logout', 'StudentLoginController@logout')->name('student.logout');
 Route::get('/student/info', 'StudentLoginController@info')->name('student.info');
 Route::get('/student/list', 'StudentController@index')->name('student.list');
 Route::get('/student/create-form', 'StudentController@createForm')->name('student.createForm');
@@ -50,6 +50,15 @@ Route::prefix('permission/')->group(function () {
     Route::get('/edit/{id}', 'PermissionController@permissionEdit')->name('permission.edit');
     Route::post('/update{id}', 'PermissionController@permissionUpdate')->name('permission.update');
     Route::get('/delete/{id}', 'PermissionController@permissionDelete')->name('permission.delete');
+});
+
+//team
+Route::prefix('team/')->group(function () {
+    Route::get('/create-form', 'TeamController@teamCreateForm')->name('team.createForm');
+    Route::post('/create', 'TeamController@teamCreate')->name('team.create');
+    Route::get('/edit/{id}', 'TeamController@teamEdit')->name('team.edit');
+    Route::post('/update{id}', 'TeamController@teamUpdate')->name('team.update');
+    Route::get('/delete/{id}', 'TeamController@teamDelete')->name('team.delete');
 });
 
 

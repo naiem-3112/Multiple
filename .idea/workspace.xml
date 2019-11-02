@@ -2,21 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="239fbcb7-5f33-44fe-a0ed-fc42b2006215" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/userRolPer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/userRolPer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentLoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentLoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/chkAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/chkAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Role.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Student.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/permission/createPermission.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/permission/createPermission.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/permission/editPermission.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/permission/editPermission.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/permission/listPermission.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/permission/listPermission.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/role/createRole.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/role/createRole.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/role/editRole.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/role/editRole.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/role/listRole.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/role/listRole.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/student/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/student/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/student/info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/info.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/student/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/student/loginForm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/loginForm.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -134,8 +143,9 @@
   </component>
   <component name="ProjectId" id="1SlzTs18AI89TtrY6bhL1MhjLuD" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -143,6 +153,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -184,6 +195,9 @@
       <workItem from="1572251287410" duration="15041000" />
       <workItem from="1572266343946" duration="1909000" />
       <workItem from="1572324954448" duration="27116000" />
+      <workItem from="1572421798881" duration="913000" />
+      <workItem from="1572670184203" duration="14038000" />
+      <workItem from="1572685518843" duration="4957000" />
     </task>
     <servers />
   </component>

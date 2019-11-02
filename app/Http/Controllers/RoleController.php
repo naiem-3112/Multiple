@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Role;
 use App\Student;
+
 use App\Permission;
 
 class RoleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth:student', 'checkPermission']);
+        $this->middleware(['auth:student']);
     }
 
     public function index()
@@ -46,17 +47,21 @@ class RoleController extends Controller
     public function roleEdit($id)
     {
         $editRoles = Role::find($id);
-        return view('role.editRole', compact('editRoles'));
+        $editPermissions = Permission::all();
+
+        return view('role.editRole', compact('editRoles', 'editPermissions'));
     }
 
     public function roleUpdate(Request $request, $id)
     {
         $this->validate($request, [
            'name' => 'required',
+
         ]);
         $roleUpdate = Role::find($id);
         $roleUpdate->name = $request->name;
         $roleUpdate->save();
+        $roleUpdate->permissions()->sync($request->permission);
         return redirect('role/list');
     }
 
