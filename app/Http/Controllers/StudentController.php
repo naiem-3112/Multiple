@@ -84,6 +84,6 @@ class StudentController extends Controller
 
     public function logout(Request $request) {
         Auth::guard('student')->logout();
-        return redirect('/student/login-form');
+        return redirect('/');
     }
 }
