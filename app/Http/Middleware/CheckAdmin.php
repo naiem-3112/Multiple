@@ -6,7 +6,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class chkAdmin
+class checkAdmin
 {
     /**
      * Handle an incoming request.

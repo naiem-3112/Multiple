@@ -18,12 +18,21 @@
             <td>{{ $student->from }}</td>
             <td>{{ $student->to }}</td>
             <td>
+                @can('update',App\Student::class)
+
                 <a href="{{ route('student.edit', $student->id) }}">Edit</a>
-                <a href="{{ route('student.delete', $student->id) }}">Delete</a>
+                @endcan
+                    @can('delete',App\Student::class)
+
+                    <a href="{{ route('student.delete', $student->id) }}">Delete</a>
+                        @endcan
             </td>
         </tr>
             @endforeach
     </table>
     </div>
-    <a href="{{ route('student.createForm') }}">Create New Student</a>
+    @can('create',App\Student::class)
+
+        <a href="{{ route('student.createForm') }}">Create New Student</a>
+    @endcan
     @endsection

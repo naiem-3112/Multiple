@@ -12,7 +12,7 @@ class RoleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware([]);
+        $this->middleware('can:before,App\Role');
     }
 
     public function index()
